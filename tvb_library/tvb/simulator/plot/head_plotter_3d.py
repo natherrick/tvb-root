@@ -49,12 +49,12 @@ Usage
 import numpy as np
 import matplotlib.pyplot as plt
 from tvb.simulator.lab import *
-from deprecated import deprecated
+#from deprecated import deprecated
 import ipywidgets as widgets
 from IPython.display import display
 
 
-@deprecated(reason="Use tvb-widgets instead")
+#@deprecated(reason="Use tvb-widgets instead")
 class HeadPlotter3D(object):
 
     def display_source_sensor_geometry(self, surface=None, conn=None, meg_sensors=None, eeg_sensors=None):

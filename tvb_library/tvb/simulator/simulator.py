@@ -354,7 +354,7 @@ class Simulator(HasTraits):
         if n_steps is None:
             n_steps = int(math.ceil(self.simulation_length / self.integrator.dt))
         else:
-            if not numpy.issubdtype(type(n_steps), numpy.integer):
+            if not numpy.issubdtype(type(n_steps), int):
                 raise TypeError("Incorrect type for n_steps: %s, expected integer" % type(n_steps))
 
         for step in range(start_step, start_step + n_steps):

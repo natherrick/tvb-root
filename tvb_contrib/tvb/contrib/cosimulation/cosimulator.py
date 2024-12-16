@@ -52,13 +52,13 @@ class CoSimulator(Simulator):
         label="Cosimulation model state variables' indices",
         doc=("Indices of model's variables of interest (VOI) that"
              "should be updated (i.e., overwriten) during cosimulation."),
-        default=numpy.asarray([], dtype=numpy.int),
+        default=numpy.asarray([], dtype=int),
         required=True)
 
     proxy_inds = NArray(
-        dtype=numpy.int,
+        dtype=int,
         label="Indices of TVB proxy nodes",
-        default=numpy.asarray([], dtype=numpy.int),
+        default=numpy.asarray([], dtype=int),
         required=True)
 
     cosim_monitors = List(
@@ -253,7 +253,7 @@ class CoSimulator(Simulator):
                 n_steps = cosim_updates[0].shape[0]
                 # Now update cosimulation history with the cosimulation inputs:
                 self._update_cosim_history(numpy.array(numpy.around(cosim_updates[0] / self.integrator.dt),
-                                                       dtype=numpy.int),
+                                                       dtype=int),
                                            cosim_updates[1])
 
             self.simulation_length = n_steps * self.integrator.dt
@@ -265,7 +265,7 @@ class CoSimulator(Simulator):
             if n_steps is None:
                 n_steps = int(math.ceil(self.simulation_length / self.integrator.dt))
             else:
-                if not numpy.issubdtype(type(n_steps), numpy.integer):
+                if not numpy.issubdtype(type(n_steps), int):
                     raise TypeError("Incorrect type for n_steps: %s, expected integer" % type(n_steps))
                 self.simulation_length = n_steps * self.integrator.dt
 

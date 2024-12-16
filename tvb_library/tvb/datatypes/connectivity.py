@@ -321,7 +321,7 @@ class Connectivity(HasTraits):
             in integration steps.
         """
         # Express delays in integration steps
-        self.idelays = numpy.rint(self.delays / dt).astype(numpy.int32)
+        self.idelays = numpy.rint(self.delays / dt).astype(int32)
         self.has_delays = self.idelays.any()
         self._horizon = self.idelays.max() + 1
         nn = self.idelays.shape[0]

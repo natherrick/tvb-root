@@ -116,8 +116,8 @@ class TestUtils(CudaBaseCase):
     @skip_if_no_numba
     def test_mod_pow_2(self):
         n = 32
-        i = numpy.r_[:self.n_thread].astype(numpy.int32)
-        out = (i * 0).astype(numpy.int32)
+        i = numpy.r_[:self.n_thread].astype(int32)
+        out = (i * 0).astype(int32)
         @self.jit_and_run(out, i, n)
         def kernel(out, i, n):
             t = cuda.blockDim.x * cuda.blockIdx.x + cuda.threadIdx.x
@@ -205,9 +205,9 @@ class TestDcfun(CudaBaseCase):
         # setup test data
         numpy.random.seed(42)
         n_step, n_node, n_cvar, n_svar, n_thread = 100, 5, 2, 4, self.n_thread
-        cvars = numpy.random.randint(0, n_svar, n_cvar).astype(numpy.int32)
+        cvars = numpy.random.randint(0, n_svar, n_cvar).astype(int32)
         out = numpy.zeros((n_step, n_node, n_cvar, n_thread), numpy.float32)
-        delays = numpy.random.randint(0, horizon - 2, (n_node, n_node)).astype(numpy.int32)
+        delays = numpy.random.randint(0, horizon - 2, (n_node, n_node)).astype(int32)
         weights = numpy.random.randn(n_node, n_node).astype(numpy.float32)
         weights[numpy.random.rand(*weights.shape) < 0.25] = 0.0
         state = numpy.random.randn(n_step, n_node, n_svar, n_thread).astype(numpy.float32)
@@ -315,7 +315,7 @@ class TestSim(CudaBaseCase):
         n = 5
 
         weights = numpy.zeros((n, n), numpy.float32)
-        idelays = numpy.zeros((n, n), numpy.int32)
+        idelays = numpy.zeros((n, n), int32)
         for i in range(n - 1):
             idelays[i, i + 1] = i + 1
             weights[i, i + 1] = i + 1
@@ -362,9 +362,9 @@ class TestSim(CudaBaseCase):
         # build kernel
         dt = numba.float32(sims[0].integrator.dt)
         omega = numba.float32(sims[0].model.omega[0])
-        cvars = numpy.array([0], numpy.int32)
+        cvars = numpy.array([0], int32)
         weights = sims[0].connectivity.weights.astype(numpy.float32)
-        delays = sims[0].connectivity.idelays.astype(numpy.int32)
+        delays = sims[0].connectivity.idelays.astype(int32)
 
         @cuda.jit
         def kernel(step, state, coupling, aff, buf, dt, omega, cvars, weights, delays, a_values):
@@ -375,7 +375,7 @@ class TestSim(CudaBaseCase):
                 coupling[i_post, i_thread] = a * aff[0, i_post, 0, i_thread]
                 state[0, i_post, 0, i_thread] += dt * (omega + a * aff[0, i_post, 0, i_thread])
 
-        step = numpy.array([0], numpy.int32)
+        step = numpy.array([0], int32)
         state = (numpy.zeros((1, n, 1, self.n_thread)) + 0.1).astype(numpy.float32)
         coupling0 = numpy.zeros((n, self.n_thread), numpy.float32)
         aff = numpy.zeros((1, n, 1, self.n_thread), numpy.float32)

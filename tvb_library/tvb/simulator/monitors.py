@@ -274,7 +274,7 @@ class SpatialAverage(Monitor):
         spatial_mask = numpy.array([int(val) for val in mask])
         unique_mask = numpy.unique(spatial_mask)
         if len(unique_mask) == 1 and unique_mask[0] == 1:
-            return numpy.zeros(len(spatial_mask), dtype=numpy.int)
+            return numpy.zeros(len(spatial_mask), dtype=int)
         return spatial_mask
 
     def config_for_sim(self, simulator):

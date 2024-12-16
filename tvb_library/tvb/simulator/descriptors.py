@@ -170,7 +170,7 @@ class Dim(Final):
 
     def _correct_type(self, value):
         return isinstance(value, six.integer_types) \
-               or numpy.issubdtype(type(value), numpy.integer)
+               or numpy.issubdtype(type(value), int)
 
 
 # TODO

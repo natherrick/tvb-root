@@ -72,7 +72,7 @@ class TestsExactPropagation(BaseTestCase):
 
     def build_simulator(self, n=4):
 
-        self.conn = numpy.zeros((n, n))  # , numpy.int32)
+        self.conn = numpy.zeros((n, n))  # , int32)
         for i in range(self.conn.shape[0] - 1):
             self.conn[i, i + 1] = 1
 

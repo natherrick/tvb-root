@@ -63,7 +63,7 @@ class RegionMapping(HasTraits):
         reader = FileReader(source_full_path)
 
         result = RegionMapping()
-        result.array_data = reader.read_array(dtype=numpy.int32)
+        result.array_data = reader.read_array(dtype=int32)
         return result
 
 

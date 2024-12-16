@@ -272,7 +272,7 @@ class DynamicModelController(BurstBaseController):
             model = dynamic.model
             for name, value in params.items():
                 param_type = float
-                if numpy.issubdtype(getattr(model, name).dtype, numpy.integer):
+                if numpy.issubdtype(getattr(model, name).dtype, int):
                     param_type = int
                 setattr(model, name, numpy.array([param_type(value)]))
             model.configure()

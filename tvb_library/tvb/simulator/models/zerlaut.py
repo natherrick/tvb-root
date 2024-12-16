@@ -353,7 +353,7 @@ class ZerlautAdaptationFirstOrder(Model):
 
     state_variables = 'E I W_e W_i'.split()
     _nvar = 4
-    cvar = numpy.array([0], dtype=numpy.int32)
+    cvar = numpy.array([0], dtype=int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.00):
         r"""

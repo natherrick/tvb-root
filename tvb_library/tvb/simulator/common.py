@@ -79,7 +79,7 @@ def astr(ary):
         return val
     else:
         is_py_int = isinstance(val, six.integer_types)
-        is_np_int = hasattr(val, 'dtype') and numpy.issubdtype(ary.dtype, numpy.integer)
+        is_np_int = hasattr(val, 'dtype') and numpy.issubdtype(ary.dtype, int)
         if is_py_int or is_np_int:
             return '%d' % (val,)
         else:

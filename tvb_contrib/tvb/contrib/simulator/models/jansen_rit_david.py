@@ -147,7 +147,7 @@ class JansenRitDavid(models.Model):
 
     state_variables = ["x0", "x1", "x2", "x3", "x4", "x5", "x6", "x7"]
     _nvar = 8
-    cvar = numpy.array([1, 2], dtype=numpy.int32)
+    cvar = numpy.array([1, 2], dtype=int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r"""

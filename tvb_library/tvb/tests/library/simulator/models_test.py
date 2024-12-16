@@ -71,7 +71,7 @@ class ModelTestBounds(Model):
             "x5": numpy.array([-1.0, 2.0])
         })
     _nvar = 5
-    cvar = numpy.array([0], dtype=numpy.int32)
+    cvar = numpy.array([0], dtype=int32)
 
     def dfun(self, state, node_coupling, local_coupling=0.0):
         return 0.0 * state
@@ -98,7 +98,7 @@ class ModelTestUpdateVariables(Model):
             "x5": numpy.array([-1.0, 2.0])
         })
     _nvar = 5
-    cvar = numpy.array([0], dtype=numpy.int32)
+    cvar = numpy.array([0], dtype=int32)
 
     def dfun(self, integrated_variables, node_coupling, local_coupling=0.0):
         return 0.0 * integrated_variables

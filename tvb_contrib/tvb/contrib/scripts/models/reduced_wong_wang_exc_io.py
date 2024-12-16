@@ -202,7 +202,7 @@ class ReducedWongWangExcIO(TVBReducedWongWang):
     state_variables = ['S', 'Rint', 'R', 'Rin', 'I']
     non_integrated_variables = ['R', 'Rin', 'I']
     _nvar = 5
-    cvar = numpy.array([0], dtype=numpy.int32)
+    cvar = numpy.array([0], dtype=int32)
     _R = None
     _Rin = None
     _stimulus = 0.0

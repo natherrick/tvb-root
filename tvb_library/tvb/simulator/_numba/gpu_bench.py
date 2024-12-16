@@ -107,7 +107,7 @@ if __name__ == '__main__':
     # normalize
     weights = weights / weights.sum(axis=0).max()
     dt, omega = 1.0, 10*2.0*math.pi/1e3
-    delays = (tract_lengths / 2.0 / dt).astype(numpy.int32)
+    delays = (tract_lengths / 2.0 / dt).astype(int32)
     # parameter space
     n_iter = 5 * 60 * 10
     n_grid, n_inner = 64,  100
@@ -118,8 +118,8 @@ if __name__ == '__main__':
     update = numpy.zeros((n_nodes, n_threads), numpy.float32)
     from numpy.lib.format import open_memmap
     time_series = open_memmap('/dat4/mw/tvb-test-gpu-time-series.npy', 'w+', numpy.float32, (n_iter, n_nodes, n_threads))
-    step = numpy.zeros((1, ), numpy.int32)
-    cvars = numpy.zeros((1, ), numpy.int32)
+    step = numpy.zeros((1, ), int32)
+    cvars = numpy.zeros((1, ), int32)
     # noise
     xorshift128.seed(42)
     async_noise = AsyncNoise((n_inner, n_nodes, n_threads), numpy.random)

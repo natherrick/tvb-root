@@ -434,7 +434,7 @@ class LarterBreakspear(Model):
     state_variables = tuple('V W Z'.split())
     _state_variables = ("V", "W", "Z")
     _nvar = 3
-    cvar = numpy.array([0], dtype=numpy.int32)
+    cvar = numpy.array([0], dtype=int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r"""

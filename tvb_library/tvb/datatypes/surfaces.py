@@ -160,7 +160,7 @@ class Surface(HasTraits):
         result = cls()
         result.vertices = reader.read_array_from_file("vertices.txt")
         result.vertex_normals = reader.read_array_from_file("normals.txt")
-        result.triangles = reader.read_array_from_file("triangles.txt", dtype=numpy.int32)
+        result.triangles = reader.read_array_from_file("triangles.txt", dtype=int32)
         return result
 
     @classmethod
@@ -264,13 +264,13 @@ class Surface(HasTraits):
 
         # Cython expects data with specific dtype
         verts = self.vertices.astype(numpy.float64)
-        tris = self.triangles.astype(numpy.int32)
-        srcs = sources.astype(numpy.int32)
+        tris = self.triangles.astype(int32)
+        srcs = sources.astype(int32)
         kwd = {}
 
         # handle custom args
         if targets is not None:
-            kwd['target_indices'] = targets.astype(numpy.int32)
+            kwd['target_indices'] = targets.astype(int32)
 
         if max_dist is not None:
             kwd['max_distance'] = max_dist
@@ -292,7 +292,7 @@ class Surface(HasTraits):
 
         """
         dist = gdist.local_gdist_matrix(self.vertices.astype(numpy.float64),
-                                        self.triangles.astype(numpy.int32),
+                                        self.triangles.astype(int32),
                                         max_distance=max_dist)
 
         self.geodesic_distance_matrix = dist
@@ -681,7 +681,7 @@ class Surface(HasTraits):
         from which the distance is calculated.
         equation - the equation which should be evaluated
         """
-        focal_points = numpy.array(focal_points, dtype=numpy.int32)
+        focal_points = numpy.array(focal_points, dtype=int32)
         dist = self.geodesic_distance(focal_points)
         return equation.evaluate(dist)
 

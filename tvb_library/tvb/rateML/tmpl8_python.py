@@ -96,7 +96,7 @@ class ${modelname}(ModelNumbaDfun):
     % for i, itemF in enumerate(dynamics.state_variables):
 ${i},\
     % endfor
-], dtype = numpy.int32)
+], dtype = int32)
 
     def dfun(self, vw, c, local_coupling=0.0):
         ##lc_0 = local_coupling * vw[0, :, 0]

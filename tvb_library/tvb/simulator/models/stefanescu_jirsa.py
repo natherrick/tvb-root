@@ -181,7 +181,7 @@ class ReducedSetFitzHughNagumo(ReducedSetBase):
 
     state_variables = tuple('xi eta alpha beta'.split())
     _nvar = 4
-    cvar = numpy.array([0, 2], dtype=numpy.int32)
+    cvar = numpy.array([0, 2], dtype=int32)
     # Derived parameters
     Aik = None
     Bik = None
@@ -469,7 +469,7 @@ class ReducedSetHindmarshRose(ReducedSetBase):
 
     state_variables = 'xi eta tau alpha beta gamma'.split()
     _nvar = 6
-    cvar = numpy.array([0, 3], dtype=numpy.int32)
+    cvar = numpy.array([0, 3], dtype=int32)
     # derived parameters
     A_ik = None
     B_ik = None

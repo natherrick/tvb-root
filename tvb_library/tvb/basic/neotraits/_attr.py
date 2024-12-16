@@ -346,8 +346,8 @@ class Int(_Number):
         )
 
     def _post_bind_validate(self):
-        if not issubclass(self.field_type, (int, numpy.integer)):
-            msg = 'field_type must be a python int or a numpy.integer not {!r}.'.format(self.field_type)
+        if not issubclass(self.field_type, (int, int)):
+            msg = 'field_type must be a python int or a int not {!r}.'.format(self.field_type)
             raise TraitTypeError(msg, attr=self)
         # super call after the field_type check above
         super(Int, self)._post_bind_validate()
@@ -432,7 +432,7 @@ class NArray(Attr):
                        Represents the expected domain of the values in the array.
         """
 
-        if numpy.issubdtype(dtype, numpy.integer):
+        if numpy.issubdtype(dtype, int):
             dtype = numpy.int64
         self.dtype = numpy.dtype(dtype)
 

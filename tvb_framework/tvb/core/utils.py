@@ -187,7 +187,7 @@ class TVBJSONEncoder(json.JSONEncoder):
             return obj.decode('utf-8')
         try:
             # TVB-2565 numpy int serialization
-            if numpy.issubdtype(obj, numpy.integer):
+            if numpy.issubdtype(obj, int):
                 return int(obj)
         except TypeError:
             pass

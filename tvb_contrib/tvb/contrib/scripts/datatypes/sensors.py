@@ -109,7 +109,7 @@ class SensorsInternal(Sensors, TVBSensorsInternal):
         doc="""Labels of electrodes.""")
 
     elec_inds = NArray(
-        dtype=np.int,
+        dtype=int,
         label="Electrodes' indices", default=None, required=False,
         doc="""Indices of electrodes.""")
 

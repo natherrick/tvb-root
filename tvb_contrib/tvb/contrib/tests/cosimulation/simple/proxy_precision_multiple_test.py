@@ -47,7 +47,7 @@ class TestProxyPrecisionDelaiMultiple(BaseTestCase):
                            [10, 0, 5, 6]])
         delay = np.array([[0.1, 0.1, 0.1, 0.1], [0.1, 0.1, 0.1, 0.1],
                           [0.1, 0.1, 0.1, 0.1], [0.1, 0.1, 0.1, 0.1]]) * 10
-        max = np.int(np.max(delay)*10+1)
+        max = int(np.max(delay)*10+1)
         init_value = np.array([[[0.1,0.0], [0.1,0.0], [0.2,0.0], [0.2,0.0]]* max] )
         initial_condition = init_value.reshape((max, 2, weight.shape[0], 1))
         resolution_simulation = 0.1

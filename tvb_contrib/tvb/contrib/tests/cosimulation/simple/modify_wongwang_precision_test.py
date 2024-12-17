@@ -63,7 +63,7 @@ class TestModifyWongWang(BaseTestCase):
         coupling = lab.coupling.Linear(a=np.array(0.0154))
         integrator = lab.integrators.HeunDeterministic(dt=0.1, bounded_state_variable_indices=np.array([0]),
                                                        state_variable_boundaries=np.array([[0.0, 1.0]]))
-        monitors = lab.monitors.Raw(period=0.1, variables_of_interest=np.array(0, dtype=np.int))
+        monitors = lab.monitors.Raw(period=0.1, variables_of_interest=np.array(0, dtype=int))
 
         return model, connectivity, coupling, init, integrator, monitors
 
@@ -101,7 +101,7 @@ class TestModifyWongWangRate(TestModifyWongWang):
             voi=np.array([0]),
             synchronization_time=SYNCHRONIZATION_TIME,
             cosim_monitors=(RawCosim(),),
-            proxy_inds=np.array([], dtype=np.int),
+            proxy_inds=np.array([], dtype=int),
             model=model,
             connectivity=connectivity,
             coupling=coupling,
@@ -119,10 +119,10 @@ class TestModifyWongWangRate(TestModifyWongWang):
         model = ReducedWongWangProxy(tau_s=np.random.rand(76))
         # Initialise a Simulator -- Model, Connectivity, Integrator, and Monitors.
         sim = CoSimulator(
-            voi=np.array([], dtype=np.int),
+            voi=np.array([], dtype=int),
             synchronization_time=SYNCHRONIZATION_TIME,
             cosim_monitors=(RawCosim(),),
-            proxy_inds=np.asarray(id_proxy, dtype=np.int),
+            proxy_inds=np.asarray(id_proxy, dtype=int),
             model=model,
             connectivity=connectivity,
             coupling=coupling,
@@ -148,7 +148,7 @@ class TestModifyWongWangRate(TestModifyWongWang):
             voi=np.array([0]),
             synchronization_time=synchronization_time,
             cosim_monitors=(RawCosim(),),
-            proxy_inds=np.asarray(id_proxy, dtype=np.int),
+            proxy_inds=np.asarray(id_proxy, dtype=int),
             model=model,
             connectivity=connectivity,
             coupling=coupling,
@@ -216,7 +216,7 @@ class TestModifyWongWangRate(TestModifyWongWang):
             voi=np.array([0]),
             synchronization_time=synchronization_time,
             cosim_monitors=(RawCosim(),),
-            proxy_inds=np.asarray(id_proxy, dtype=np.int),
+            proxy_inds=np.asarray(id_proxy, dtype=int),
             model=model,
             connectivity=connectivity,
             coupling=coupling,
@@ -287,7 +287,7 @@ class TestModifyWongWangRate(TestModifyWongWang):
             voi=np.array([0]),
             synchronization_time=synchronization_time,
             cosim_monitors=(RawCosim(),),
-            proxy_inds=np.asarray(id_proxy, dtype=np.int),
+            proxy_inds=np.asarray(id_proxy, dtype=int),
             model=model,
             connectivity=connectivity,
             coupling=coupling,

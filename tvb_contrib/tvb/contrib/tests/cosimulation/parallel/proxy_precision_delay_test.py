@@ -43,7 +43,7 @@ class TestPrecisionDelay(BaseTestCase):
     def test_precision_delay(self):
         weight = np.array([[2, 8, 0], [0, 0, 0], [3, 0, 1]])
         delay = np.array([[0.6, 0.5, 1.0], [0.7, 0.8, 3.0], [1.0, 0.5, 0.7]])
-        max = np.int(np.max(delay)*10+1)
+        max = int(np.max(delay)*10+1)
         init_value = np.array([[[0.1,0.0], [0.1,0.0], [0.2,0.0]]] * max)
         initial_condition = init_value.reshape((max, 2, weight.shape[0], 1))
         resolution_simulation = 0.1

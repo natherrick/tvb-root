@@ -97,7 +97,7 @@ class BasePlotter(object):
         ax = pyplot.subplot(subplot, sharey=sharey)
         pyplot.title(title)
         n_vector = labels.shape[0]
-        y_ticks = numpy.array(range(n_vector), dtype=int32)
+        y_ticks = numpy.array(range(n_vector), dtype=numpy.int32)
         color = 'k'
         colors = numpy.repeat([color], n_vector)
         coldif = False
@@ -131,7 +131,7 @@ class BasePlotter(object):
         ax = pyplot.subplot(subplot, sharey=sharey)
         pyplot.title(title)
         n_violins = dataset.shape[1]
-        y_ticks = numpy.array(range(n_violins), dtype=int32)
+        y_ticks = numpy.array(range(n_violins), dtype=numpy.int32)
         # the vector plot
         coldif = False
         if indices_red is None:
@@ -202,7 +202,7 @@ class BasePlotter(object):
         nticks = []
         for ii, (n, tick) in enumerate(zip([nx, ny], ticks)):
             if len(tick) == 0:
-                ticks[ii] = numpy.array(range(n), dtype=int32)
+                ticks[ii] = numpy.array(range(n), dtype=numpy.int32)
             nticks.append(len(ticks[ii]))
         cmap = pyplot.set_cmap(cmap)
         img = pyplot.imshow(matrix[ticks[0]][:, ticks[1]].T, cmap=cmap, vmin=vmin, vmax=vmax, interpolation='none')

@@ -164,7 +164,7 @@ def compute_centroids(region, space):
     pimg = build_mask_for_centroids(region=region, space=space)
 
     # compute properties of labelled volume
-    A = np.asarray(pimg.get_fdata(), dtype=np.int32).squeeze()
+    A = np.asarray(pimg.get_fdata(), dtype=np.numpy.int32).squeeze()
     C = measure.label(A)
 
     # compute centroid only for the first connected component of the region

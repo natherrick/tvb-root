@@ -40,7 +40,7 @@ except:
 
 
 _cu_expr_type_map = {
-    int: numba.int32,
+    int: numba.numpy.int32,
     float: numba.float32
 }
 

@@ -298,7 +298,7 @@ class LileySteynRoss(models.Model):
 
     state_variables = ["he", "hi"]
     _nvar = 2
-    cvar = numpy.array([0, 1], dtype=int32)
+    cvar = numpy.array([0, 1], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r"""

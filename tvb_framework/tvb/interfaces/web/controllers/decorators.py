@@ -117,9 +117,9 @@ def ndarray_to_http_binary(func):
 
         # map some unsupported dtypes to supported ones
         if x.dtype == numpy.int64:
-            x = numpy.asarray(x, dtype=int32)
+            x = numpy.asarray(x, dtype=numpy.int32)
 
-        if x.dtype not in [numpy.float32, numpy.float64, int32]:
+        if x.dtype not in [numpy.float32, numpy.float64, numpy.int32]:
             raise ValueError('Datatype not supported by binary transport %s' % x.dtype)
 
         x = numpy.ascontiguousarray(x)

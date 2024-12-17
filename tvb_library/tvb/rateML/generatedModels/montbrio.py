@@ -86,7 +86,7 @@ class MontbrioT(ModelNumbaDfun):
     state_variables = ['r', 'V']
 
     _nvar = 2
-    cvar = numpy.array([0,1,], dtype = int32)
+    cvar = numpy.array([0,1,], dtype = numpy.int32)
 
     def dfun(self, vw, c, local_coupling=0.0):
         vw_ = vw.reshape(vw.shape[:-1]).T

@@ -145,7 +145,7 @@ class ZipSurfaceParser(object):
             current_vertices = numpy.loadtxt(vertices_file, dtype=numpy.float32)
             self.vertices.append(current_vertices)
 
-            current_triangles = numpy.loadtxt(triangles_file, dtype=int32)
+            current_triangles = numpy.loadtxt(triangles_file, dtype=numpy.int32)
             # offset triangles by amount of previously read vertices
             current_triangles += self._read_vertices
             self.triangles.append(current_triangles)

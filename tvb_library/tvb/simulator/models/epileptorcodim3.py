@@ -164,7 +164,7 @@ class EpileptorCodim3(ModelNumbaDfun):
 
     # number of state variables
     _nvar = 3
-    cvar = numpy.array([0], dtype=int32)
+    cvar = numpy.array([0], dtype=numpy.int32)
 
     # If there are derived parameters from the predefined parameters, then initialize them to None
     G = None
@@ -489,7 +489,7 @@ class EpileptorCodim3SlowMod(ModelNumbaDfun):
 
     # number of state variables
     _nvar = 5
-    cvar = numpy.array([0], dtype=int32)
+    cvar = numpy.array([0], dtype=numpy.int32)
 
     # If there are derived parameters from the predefined parameters, then initialize them to None
     G = None

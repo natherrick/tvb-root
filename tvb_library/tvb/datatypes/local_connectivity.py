@@ -139,7 +139,7 @@ class LocalConnectivity(HasTraits):
 
         self.matrix_gdist = surfaces.gdist.local_gdist_matrix(
             self.surface.vertices.astype(numpy.float64),
-            self.surface.triangles.astype(int32),
+            self.surface.triangles.astype(numpy.int32),
             max_distance=self.cutoff)
 
         self.compute()

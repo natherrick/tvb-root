@@ -146,7 +146,7 @@ class EpileptorT(ModelNumbaDfun):
     state_variables = ['x1', 'y1', 'z', 'x2', 'y2', 'g']
 
     _nvar = 6
-    cvar = numpy.array([0,1,2,3,4,5,], dtype = int32)
+    cvar = numpy.array([0,1,2,3,4,5,], dtype = numpy.int32)
 
     def dfun(self, vw, c, local_coupling=0.0):
         vw_ = vw.reshape(vw.shape[:-1]).T

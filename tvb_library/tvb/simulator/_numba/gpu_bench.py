@@ -39,7 +39,7 @@ import math
 from randomstate.prng.xorshift128 import xorshift128
 from datetime import datetime, timedelta
 
-from numba import cuda, int32, float32
+from numba import cuda, numpy.int32, float32
 from tvb.simulator._numba.coupling import cu_delay_cfun, next_pow_of_2
 from tvb.simulator._numba.util import cu_expr
 from tvb.simulator.async import AsyncResult
@@ -70,8 +70,8 @@ def make_kernel(delays, n_thread_per_block, n_inner):
     horizon = next_pow_of_2(delays.max() + 1)
     cfpre = cu_expr('sin(xj - xi)', ('xi', 'xj'), {})
     cfpost = cu_expr('rcp_n * gx', ('gx', ), {'rcp_n': 1.0 / delays.shape[0]})
-    n_thread_per_block = int32(n_thread_per_block)
-    n_inner = int32(n_inner)
+    n_thread_per_block = numpy.int32(n_thread_per_block)
+    n_inner = numpy.int32(n_inner)
     dcf = cu_delay_cfun(horizon, cfpre, cfpost, 1, n_thread_per_block)
     @cuda.jit
     def kernel(step, state, update, buf, dt, omega, cvars,
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     # normalize
     weights = weights / weights.sum(axis=0).max()
     dt, omega = 1.0, 10*2.0*math.pi/1e3
-    delays = (tract_lengths / 2.0 / dt).astype(int32)
+    delays = (tract_lengths / 2.0 / dt).astype(numpy.int32)
     # parameter space
     n_iter = 5 * 60 * 10
     n_grid, n_inner = 64,  100
@@ -118,8 +118,8 @@ if __name__ == '__main__':
     update = numpy.zeros((n_nodes, n_threads), numpy.float32)
     from numpy.lib.format import open_memmap
     time_series = open_memmap('/dat4/mw/tvb-test-gpu-time-series.npy', 'w+', numpy.float32, (n_iter, n_nodes, n_threads))
-    step = numpy.zeros((1, ), int32)
-    cvars = numpy.zeros((1, ), int32)
+    step = numpy.zeros((1, ), numpy.int32)
+    cvars = numpy.zeros((1, ), numpy.int32)
     # noise
     xorshift128.seed(42)
     async_noise = AsyncNoise((n_inner, n_nodes, n_threads), numpy.random)

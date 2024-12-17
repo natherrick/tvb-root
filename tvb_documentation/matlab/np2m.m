@@ -13,7 +13,7 @@ if isempty(t2m)
     t2m.B = @uint8;
     t2m.h = @int16;
     t2m.H = @int16;
-    t2m.i = @int32;
+    t2m.i = @numpy.int32;
     t2m.I = @uint32;
     t2m.l = @int64;
     t2m.L = @uint64;
@@ -31,7 +31,7 @@ y = matlab_class(py.array.array(type_code, py.numpy.nditer(x)));
 %% handle shape if required
 ndim = x.ndim * 1;
 if ndim > 1
-    shape = int32(zeros([1 ndim]));
+    shape = numpy.int32(zeros([1 ndim]));
     for i=1:ndim
         shape(i) = x.shape{ndim+1-i}*1;
     end

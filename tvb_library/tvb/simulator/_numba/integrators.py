@@ -28,12 +28,12 @@
 #
 #
 
-from numba import cuda, int32, float32
+from numba import cuda, numpy.int32, float32
 
 def make_euler(dt, f, n_svar, n_step):
     "Construct CUDA device function for Euler scheme."
 
-    n_step = int32(n_step)
+    n_step = numpy.int32(n_step)
     dt = float32(dt)
 
     @cuda.jit(device=True)
@@ -50,7 +50,7 @@ def make_euler(dt, f, n_svar, n_step):
 def make_rk4(dt, f, n_svar, n_step):
     "Construct CUDA device function for Runge-Kutta 4th order scheme."
 
-    n_step = int32(n_step)
+    n_step = numpy.int32(n_step)
     dt = float32(dt)
 
     @cuda.jit(device=True)

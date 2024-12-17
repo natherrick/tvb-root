@@ -86,4 +86,4 @@ class NIFTIParser(object):
         # it as first dimension, so we have to adapt imported data
 
         nifti_data = self.nifti_image.get_data()
-        return numpy.array(nifti_data, dtype=int32)
+        return numpy.array(nifti_data, dtype=numpy.int32)

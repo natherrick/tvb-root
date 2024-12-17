@@ -135,7 +135,7 @@ class SurfaceH5(H5File):
             self._split_slices = {0: {KEY_TRIANGLES: {KEY_START: 0, KEY_END: self._number_of_triangles},
                                       KEY_VERTICES: {KEY_START: 0, KEY_END: self._number_of_vertices},
                                       KEY_HEMISPHERE: HEMISPHERE_UNKNOWN}}
-            self._split_triangles = numpy.array([], dtype=int32)
+            self._split_triangles = numpy.array([], dtype=numpy.int32)
             return
 
         # Compute the number of split slices:
@@ -202,7 +202,7 @@ class SurfaceH5(H5File):
                                                             KEY_END: last_triangles_idx + len(split_)}
             final_split_triangles.extend(split_)
             last_triangles_idx += len(split_)
-        self._split_triangles = numpy.array(final_split_triangles, dtype=int32)
+        self._split_triangles = numpy.array(final_split_triangles, dtype=numpy.int32)
 
         if ignored_triangles_counter > 0:
             LOG.warning("Ignored triangles from multiple hemispheres: " + str(ignored_triangles_counter))

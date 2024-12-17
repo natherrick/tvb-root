@@ -137,11 +137,11 @@ class RegionMappingImporter(ABCUploader):
                 files = self.storage_interface.unpack_zip(view_model.mapping_file, tmp_folder)
                 if len(files) > 1:
                     raise LaunchException("Please upload a ZIP file containing only one file.")
-                array_data = self.read_list_data(files[0], dtype=int32)
+                array_data = self.read_list_data(files[0], dtype=numpy.int32)
             finally:
                 self.storage_interface.remove_folder(tmp_folder, True)
         else:
-            array_data = self.read_list_data(view_model.mapping_file, dtype=int32)
+            array_data = self.read_list_data(view_model.mapping_file, dtype=numpy.int32)
 
         # Now we do some checks before building final RegionMapping
         if array_data is None or len(array_data) == 0:

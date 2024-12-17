@@ -29,7 +29,7 @@
 #
 
 import numpy
-from numba import cuda, float32, int32
+from numba import cuda, float32, numpy.int32
 from .util import CUDA_SIM
 
 
@@ -126,8 +126,8 @@ def cu_delay_cfun(horizon, cfpre, cfpost, n_cvar, n_thread_per_block, step_strid
         raise ValueError(msg)
 
     # 0 except for testing
-    step_stride = int32(step_stride)
-    aff_node_stride = int32(aff_node_stride)
+    step_stride = numpy.int32(step_stride)
+    aff_node_stride = numpy.int32(aff_node_stride)
 
     @cuda.jit(device=True)
     def dcfun(aff, delays, weights, state, i_post, i_thread, step, cvars, buf):#, delayed_step):

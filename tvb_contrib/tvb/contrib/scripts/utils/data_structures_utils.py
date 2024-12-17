@@ -61,13 +61,13 @@ class CalculusConfig(object):
 
 def is_numeric(value):
     return isinstance(value, (float, np.float, np.float64, np.float32, np.float16, np.float128,
-                              int, np.int, np.int0, np.int8, np.int16, np.int32, np.int64,
+                              int, np.int, np.int0, np.int8, np.int16, np.numpy.int32, np.int64,
                               complex, np.complex, np.complex64, np.complex128, np.complex256,
                               np.long, np.number))
 
 
 def is_integer(value):
-    return isinstance(value, (int, np.int, np.int0, np.int8, np.int16, np.int32, np.int64))
+    return isinstance(value, (int, np.int, np.int0, np.int8, np.int16, np.numpy.int32, np.int64))
 
 
 def is_float(value):
@@ -767,14 +767,14 @@ def make_int(x, precision="64"):
         if isequal_string(precision, "64"):
             return x.astype(np.int64)
         elif isequal_string(precision, "32"):
-            return x.astype(np.int32)
+            return x.astype(np.numpy.int32)
         else:
             return x.astype(np.int)
     else:
         if isequal_string(precision, "64"):
             return np.int64(x)
         elif isequal_string(precision, "32"):
-            np.int32(x)
+            np.numpy.int32(x)
         else:
             return np.int(x)
 

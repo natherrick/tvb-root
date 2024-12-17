@@ -91,7 +91,7 @@ class TestNDArray(object):
         assert pos.shape == (50, 3)
         assert cnt.shape == (50,)
         assert pos.dtype == numpy.float32
-        assert cnt.dtype == int32
+        assert cnt.dtype == numpy.int32
         pos = self.ps25.positions
         cnt = self.ps25.counts
         assert pos.shape == (25, 3)
@@ -167,6 +167,6 @@ class TestFinal(object):
         assert self.foo.x == 2.3
 
     def test_dim_accepts_many_int_types(self):
-        int_types = list(six.integer_types) + [int32, numpy.uint32, numpy.int64]
+        int_types = list(six.integer_types) + [numpy.int32, numpy.uint32, numpy.int64]
         for i, int_type in enumerate(six.integer_types):
             setattr(self.foo, 'm%d' % i, int_type(0))

@@ -230,7 +230,7 @@ class ReducedWongWangExcInh(ModelNumbaDfun):
 
     state_variables = ['S_e', 'S_i']
     _nvar = 2
-    cvar = numpy.array([0], dtype=int32)
+    cvar = numpy.array([0], dtype=numpy.int32)
 
     def configure(self):
         """  """

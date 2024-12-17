@@ -166,9 +166,9 @@ class MontbrioPazoRoxin(Model):
     state_variables = ('r', 'V')
     _nvar = 2
     # Cvar is the coupling variable. 
-    cvar = numpy.array([0, 1], dtype=int32)
+    cvar = numpy.array([0, 1], dtype=numpy.int32)
     # Stvar is the variable where stimulus is applied.
-    stvar = numpy.array([1], dtype=int32)
+    stvar = numpy.array([1], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r, V = state_variables
@@ -288,7 +288,7 @@ class CoombesByrne(Model):
     state_variables = ('r', 'V', 'g', 'q')
     _nvar = 4
     # Cvar is the coupling variable. 
-    cvar = numpy.array([0, 1, 2, 3], dtype=int32)
+    cvar = numpy.array([0, 1, 2, 3], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r, V, g, q = state_variables
@@ -388,7 +388,7 @@ class CoombesByrne2D(Model):
     state_variables = ('r', 'V')
     _nvar = 2
     # Cvar is the coupling variable. 
-    cvar = numpy.array([0, 1], dtype=int32)
+    cvar = numpy.array([0, 1], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r, V = state_variables
@@ -523,7 +523,7 @@ class GastSchmidtKnosche_SD(Model):
     state_variables = ('r', 'V', 'A', 'B')
     _nvar = 4
     # Cvar is the coupling variable. 
-    cvar = numpy.array([0, 1, 2, 3], dtype=int32)
+    cvar = numpy.array([0, 1, 2, 3], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r, V, A, B = state_variables
@@ -665,7 +665,7 @@ class GastSchmidtKnosche_SF(Model):
     state_variables = ('r', 'V', 'A', 'B')
     _nvar = 4
     # Cvar is the coupling variable. 
-    cvar = numpy.array([0, 1, 2, 3], dtype=int32)
+    cvar = numpy.array([0, 1, 2, 3], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r, V, A, B = state_variables
@@ -848,7 +848,7 @@ class DumontGutkin(Model):
     state_variables = ('r_e', 'V_e', 's_ee', 's_ei', 'r_i', 'V_i', 's_ie', 's_ii')
     _nvar = 8
     # Cvar is the coupling variable. 
-    cvar = numpy.array([0, 1, 4, 5], dtype=int32)
+    cvar = numpy.array([0, 1, 4, 5], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0):
         r_e, V_e, s_ee, s_ei, r_i, V_i, s_ie, s_ii = state_variables

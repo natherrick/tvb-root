@@ -1079,7 +1079,7 @@ function HLPR_fetchNdArray(binary_url, onload, kwargs) {
         let floatArray;
 
         switch (dtype) {
-            case "int32":
+            case "numpy.int32":
                 floatArray = new Int32Array(arrayBuffer);
                 break;
             case "float64":

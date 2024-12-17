@@ -277,7 +277,7 @@ class BrunelWang(models.Model):
     NMAX = NArray(
         dtype=int,
         label=":math:`N_{MAX}`",
-        default=numpy.array([8, ], dtype=int32),
+        default=numpy.array([8, ], dtype=numpy.int32),
         domain=Range(lo=2, hi=8, step=1),
         doc="""This is a magic number as given in the original code.
         It is used to compute the phi and psi -- computationally expensive --
@@ -346,7 +346,7 @@ class BrunelWang(models.Model):
 
     state_variables = ["E", "I"]
     _nvar = 2
-    cvar = numpy.array([0, 1], dtype=int32)
+    cvar = numpy.array([0, 1], dtype=numpy.int32)
 
     def configure(self):
         """  """

@@ -201,7 +201,7 @@ class JansenRit(ModelNumbaDfun):
 
     state_variables = tuple('y0 y1 y2 y3 y4 y5'.split())
     _nvar = 6
-    cvar = numpy.array([1, 2], dtype=int32)
+    cvar = numpy.array([1, 2], dtype=numpy.int32)
 
     def _numpy_dfun(self, state_variables, coupling, local_coupling=0.0):
         y0, y1, y2, y3, y4, y5 = state_variables
@@ -470,7 +470,7 @@ class ZetterbergJansen(Model):
 
     state_variables = tuple('v1 y1 v2 y2 v3 y3 v4 y4 v5 y5 v6 v7'.split())
     _nvar = 12
-    cvar = numpy.array([10], dtype=int32)
+    cvar = numpy.array([10], dtype=numpy.int32)
     Heke = None  # self.He * self.ke
     Hiki = None  # self.Hi * self.ki
     ke_2 = None  # 2 * self.ke

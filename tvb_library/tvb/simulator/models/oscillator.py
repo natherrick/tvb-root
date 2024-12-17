@@ -326,7 +326,7 @@ class Generic2dOscillator(ModelNumbaDfun):
 
     state_variables = ('V', 'W')
     _nvar = 2
-    cvar = numpy.array([0], dtype=int32)
+    cvar = numpy.array([0], dtype=numpy.int32)
 
     def _numpy_dfun(self, state_variables, coupling, local_coupling=0.0):
         V = state_variables[0, :]
@@ -455,7 +455,7 @@ class Kuramoto(Model):
 
     state_variables = ['theta']
     _nvar = 1
-    cvar = numpy.array([0], dtype=int32)
+    cvar = numpy.array([0], dtype=numpy.int32)
 
     def dfun(self, state_variables, coupling, local_coupling=0.0,
              ev=RefBase.evaluate, sin=numpy.sin, pi2=numpy.pi * 2):
@@ -550,7 +550,7 @@ class SupHopf(ModelNumbaDfun):
     state_variables = ["x", "y"]
 
     _nvar = 2  # number of state-variables
-    cvar = numpy.array([0, 1], dtype=int32)  # coupling variables
+    cvar = numpy.array([0, 1], dtype=numpy.int32)  # coupling variables
 
     def _numpy_dfun(self, state_variables, coupling, local_coupling=0.0,
                     array=numpy.array, where=numpy.where, concat=numpy.concatenate):

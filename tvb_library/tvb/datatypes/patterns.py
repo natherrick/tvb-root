@@ -225,7 +225,7 @@ class StimuliSurface(SpatioTemporalPattern):
         k = -1
         for focal_point in self.focal_points_surface:
             k += 1
-            foci = numpy.array([focal_point], dtype=int32)
+            foci = numpy.array([focal_point], dtype=numpy.int32)
             distance[:, k] = self.surface.geodesic_distance(foci)
         super(StimuliSurface, self).configure_space(distance)
 
